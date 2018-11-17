@@ -25,9 +25,8 @@ var catSchema = new Schema({
   serialNumber: {
     type: Number
   },
-  shelterName: {
-    type: String,
-    required: true
+  shelterTableID: {
+    type: Schema.Types.ObjectId, ref: 'shelter'
   },
   shelterID: {
     type: Number,
@@ -59,7 +58,10 @@ var catSchema = new Schema({
   RabiesVaccinationDate: {
     type: Date
   },
-  MedcialNotes: {
+  vetTableID: {
+    type: Schema.Types.ObjectId, ref: 'vet'
+  },
+  MedicalNotes: {
     type: String
   },
   BehaviourNotes: {
@@ -74,8 +76,11 @@ var catSchema = new Schema({
   FosterPlacementDate: {
     type: Date
   },
-  Location: {
-    type: String
+  fosterTableID: {
+    type: Schema.Types.ObjectId, ref: 'foster'
+  },
+  ownerTableID: {
+    type: Schema.Types.ObjectId, ref: 'owner'
   }
 });
 
