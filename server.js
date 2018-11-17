@@ -1,5 +1,6 @@
 // require
 const express = require("express");
+var session = require('express-session');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
@@ -29,6 +30,12 @@ mongoose
 
 // temp route
 app.get("/", (req, res) => res.send("Hello")); // dont need
+// Using express session cookies
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false
+}));
 // Cats routes
 app.use("/api/cats", cats);
 app.use("/api/users", users);
