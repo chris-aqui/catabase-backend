@@ -11,8 +11,12 @@ var catSchema = new Schema({
     type: String,
     required: true
   },
+  dob: {
+    type: Date
+  },
   age: {
     type: Number,
+    enum: ["Unweaned", "Juvenile", "Young Adult", "Adult", "Senior"],
     required: true
   },
   sex: {
@@ -24,6 +28,21 @@ var catSchema = new Schema({
     type: String,
     default: "Fostered",
     required: true
+  },
+  size: {
+    type: String,
+    enum: ["Small", "Medium"]
+  },
+  sterilized: {
+    type: Boolean
+  },
+  primaryBreed: {
+    type: String,
+    enum: ["DSH", "DMH", "DLH", "Other"]
+  },
+  secondaryBreed: {
+    type: String,
+    enum: ["DSH", "DMH", "DLH", "Other"]
   },
   description: {
     type: String

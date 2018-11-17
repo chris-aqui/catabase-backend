@@ -69,7 +69,12 @@ module.exports = {
       intakeDate: 2018/10/01,
       fosterPlacementDate: req.body.fosterPlacementDate,
       fosterTableID: req.body.fosterTableID,
-      ownerTableID: req.body.ownerTableID
+      ownerTableID: req.body.ownerTableID,
+      dob: req.body.dob,
+      size: req.body.size,
+      primaryBreed: 'DSH',
+      secondaryBreed: 'Siamese'
+      
       // name: req.body.name,
       // age: req.body.age,
       // sex: req.body.sex,
@@ -92,6 +97,10 @@ module.exports = {
       // fosterPlacementDate: req.body.fosterPlacementDate,
       // fosterTableID: req.body.fosterTableID,
       // ownerTableID: req.body.ownerTableID
+      // dob: req.body.dob,
+      // size: req.body.size,
+      // primaryBreed: req.body.primaryBreed,
+      // secondaryBreed: req.body.secondaryBreed
     });
 
     cat.save(function(err, cat) {
