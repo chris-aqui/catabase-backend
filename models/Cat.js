@@ -1,0 +1,87 @@
+// model dependencies
+const mongoose = require("mongoose");
+const uuidv1 = require("uuid/v1");
+
+// because you need a schema bro
+const Schema = mongoose.Schema;
+
+const CatSchema = new Schema({
+  uuid: {
+    type: String,
+    default: uuidv1()
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  age: {
+    type: Number,
+    required: true
+  },
+  sex: {
+    type: String,
+    require: true
+  },
+  Description: {
+    type: String
+  },
+  serialNumber: {
+    type: Number
+  },
+  shelterName: {
+    type: String,
+    required: true
+  },
+  shelterID: {
+    type: Number,
+    required: true
+  },
+  petpointID: {
+    type: Number,
+    required: true
+  },
+  Image: {
+    type: String,
+    required: true
+  },
+  FIVTested: {
+    type: String,
+    enum: ["Positive", "Negative"],
+    default: "Not Tested",
+    required: true
+  },
+  FLVTested: {
+    type: String,
+    enum: ["Positive", "Negative"],
+    default: "Not Tested",
+    required: true
+  },
+  FVRCPVaccinationDate: {
+    type: Date
+  },
+  RabiesVaccinationDate: {
+    type: Date
+  },
+  MedcialNotes: {
+    type: String
+  },
+  BehaviourNotes: {
+    type: String
+  },
+  Outcome: {
+    type: String
+  },
+  IntakeDate: {
+    type: Date
+  },
+  FosterPlacementDate: {
+    type: Date
+  },
+  Location: {
+    type: String
+  }
+});
+
+module.export = Cat = mongoose.model("cats", CatSchema);
+
+// ok
