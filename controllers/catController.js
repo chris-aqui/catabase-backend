@@ -74,7 +74,8 @@ module.exports = {
       dob: req.body.dob,
       primaryColor: req.body.primaryColor,
       secondaryColor: req.body.secondaryColor,
-      colorPattern: req.body.colorPattern
+      colorPattern: req.body.colorPattern,
+      recordOwner: req.body.recordOwner
     });
 
     cat.save(function(err, cat) {

@@ -110,6 +110,12 @@ var catSchema = new Schema({
   fosterPlacementDate: {
     type: Date
   },
+  IntakeSubtype: {
+    type: String
+  },
+  recordOwner: {
+    type: String
+  },
   fosterTableID: {
     type: Schema.Types.ObjectId,
     ref: "foster"
@@ -117,9 +123,6 @@ var catSchema = new Schema({
   ownerTableID: {
     type: Schema.Types.ObjectId,
     ref: "owner"
-  },
-  recordOwner: {
-    type: String
   }
 });
 

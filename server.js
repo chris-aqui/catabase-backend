@@ -7,6 +7,11 @@ const bodyParser = require("body-parser");
 // require routes
 const cats = require("./routes/api/catRoutes");
 const users = require("./routes/api/userRoutes");
+const owners = require('./routes/api/ownerRoutes');
+const shelters = require('./routes/api/shelterRoutes');
+const fosters = require('./routes/api/fosterRoutes');
+const vets = require('./routes/api/vetRouteRoutes');
+
 
 // initilized
 const app = express();
@@ -39,6 +44,11 @@ app.use(session({
 // Cats routes
 app.use("/api/cats", cats);
 app.use("/api/users", users);
+app.use('/api/owners', owners);
+app.use('/api/vets', vets);
+app.use('/api/shelters', shelters);
+app.use('/api/fosters', fosters);
+
 
 // are you listening
 app.listen(port, () => {
