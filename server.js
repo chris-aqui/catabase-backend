@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 // require routes
 const cats = require("./routes/api/catRoutes");
 const users = require("./routes/api/userRoutes");
+const vets = require('./routes/api/vetRoutes')
 
 // initilized
 const app = express();
@@ -32,6 +33,8 @@ app.get("/", (req, res) => res.send("Hello")); // dont need
 // Cats routes
 app.use("/api/cats", cats);
 app.use("/api/users", users);
+app.use('/api/vets', vets);
+
 
 // are you listening
 app.listen(port, () => {
