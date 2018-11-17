@@ -1,11 +1,7 @@
-// model dependencies
-const mongoose = require("mongoose");
-const uuidv1 = require("uuid/v1");
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-// because you need a schema bro
-const Schema = mongoose.Schema;
-
-const CatSchema = new Schema({
+var catSchema = new Schema({
   uuid: {
     type: String,
     default: uuidv1()
@@ -82,6 +78,4 @@ const CatSchema = new Schema({
   }
 });
 
-module.export = Cat = mongoose.model("cats", CatSchema);
-
-// ok
+module.exports = mongoose.model("cat", catSchema);

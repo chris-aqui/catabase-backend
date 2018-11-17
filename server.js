@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 // require routes
-const cats = require("./routes/api/cats");
+const cats = require("./routes/api/catRoutes");
 
 // initilized
 const app = express();
