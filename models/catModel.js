@@ -19,7 +19,12 @@ var catSchema = new Schema({
     type: String,
     require: true
   },
-  Description: {
+  status: {
+    type: String,
+    default: "Not Tested",
+    required: true
+  },
+  description: {
     type: String
   },
   serialNumber: {
