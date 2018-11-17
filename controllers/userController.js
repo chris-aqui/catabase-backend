@@ -47,20 +47,31 @@ module.exports = {
      * userController.create()
      */
     create: function (req, res) {
-        var user = new userModel({
-			name : req.body.name
+        if (req.body.email &&
+            req.body.name &&
+            req.body.password &&
+            req.body.passwordConf
+            ) {
+            var user = new userModel({
+                name : req.body.name,
+                email: req.body.email,
+                password: req.body.password
+            });
 
-        });
-
-        user.save(function (err, user) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating user',
-                    error: err
-                });
-            }
-            return res.status(201).json(user);
-        });
+            user.save(function (err, user) {
+                if (err) {
+                    return res.status(500).json({
+                        message: 'Error when creating user',
+                        error: err
+                    });
+                }
+                return res.status(201).json(user);
+            });
+        } else {
+            return res.status(500).json({
+                message: "Please complete all required fields"
+            })
+        }
     },
 
     /**
@@ -110,5 +121,24 @@ module.exports = {
             }
             return res.status(204).json();
         });
+    },
+
+    login: function(req, res, next) {
+        if (req.body.password && req.body.email) {
+            userModel.authenticate(req.body.email, req.body.password, function(error, user) {
+                if (error || !user) {
+                    var err = new Error('Wrong email or password');
+                    err.status = 401;
+                    return next(err);
+                } else {
+                    req.session.userId = user._id;
+                    return res.redirect('/');
+                }
+            })
+        } else {
+            var err = new Error('All fields required.')
+            err.status = 400;
+            return next(err);
+        }
     }
 };
