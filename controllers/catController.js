@@ -65,7 +65,11 @@ module.exports = {
       behaviourNotes: req.body.behaviourNotes,
       outcome: req.body.outcome,
       intakeDate: req.body.intakeDate,
-      fosterPlacementDate: req.body.fosterPlacementDate
+      fosterPlacementDate: req.body.fosterPlacementDate,
+      dob: req.body.dob,
+      size: req.body.size,
+      primaryBreed: req.body.primaryBreed,
+      secondaryBreed: req.body.secondaryBreed
     });
 
     cat.save(function(err, cat) {
