@@ -17,11 +17,12 @@ var catSchema = new Schema({
   },
   sex: {
     type: String,
+    enum: ["Male", "Female"],
     require: true
   },
   status: {
     type: String,
-    default: "Not Tested",
+    default: "Fostered",
     required: true
   },
   description: {
@@ -31,61 +32,63 @@ var catSchema = new Schema({
     type: Number
   },
   shelterTableID: {
-    type: Schema.Types.ObjectId, ref: 'shelter'
+    type: Schema.Types.ObjectId,
+    ref: "shelter"
   },
   shelterID: {
-    type: Number,
-    required: true
+    type: Number
   },
   petpointID: {
     type: Number,
     required: true
   },
-  Image: {
-    type: String,
-    required: true
+  image: {
+    type: String
   },
   FIVTested: {
     type: String,
-    enum: ["Positive", "Negative"],
+    enum: ["Positive", "Negative", "Not Tested"],
     default: "Not Tested",
     required: true
   },
   FLVTested: {
     type: String,
-    enum: ["Positive", "Negative"],
+    enum: ["Positive", "Negative", "Not Tested"],
     default: "Not Tested",
     required: true
   },
   FVRCPVaccinationDate: {
     type: Date
   },
-  RabiesVaccinationDate: {
+  rabiesVaccinationDate: {
     type: Date
   },
   vetTableID: {
-    type: Schema.Types.ObjectId, ref: 'vet'
+    type: Schema.Types.ObjectId,
+    ref: "vet"
   },
-  MedicalNotes: {
+  medicalNotes: {
     type: String
   },
-  BehaviourNotes: {
+  behaviourNotes: {
     type: String
   },
-  Outcome: {
+  outcome: {
     type: String
   },
-  IntakeDate: {
+  intakeDate: {
     type: Date
   },
-  FosterPlacementDate: {
+  fosterPlacementDate: {
     type: Date
   },
   fosterTableID: {
-    type: Schema.Types.ObjectId, ref: 'foster'
+    type: Schema.Types.ObjectId,
+    ref: "foster"
   },
   ownerTableID: {
-    type: Schema.Types.ObjectId, ref: 'owner'
+    type: Schema.Types.ObjectId,
+    ref: "owner"
   }
 });
 
