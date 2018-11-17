@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 // require routes
 const cats = require("./routes/api/catRoutes");
+const cats = require("./routes/api/userRoutes");
 
 // initilized
 const app = express();
@@ -30,6 +31,7 @@ mongoose
 app.get("/", (req, res) => res.send("Hello")); // dont need
 // Cats routes
 app.use("/api/cats", cats);
+app.use("/api/users", users);
 
 // are you listening
 app.listen(port, () => {
