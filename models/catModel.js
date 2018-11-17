@@ -15,7 +15,7 @@ var catSchema = new Schema({
     type: Date
   },
   age: {
-    type: Number,
+    type: String,
     enum: ["Unweaned", "Juvenile", "Young Adult", "Adult", "Senior"],
     required: true
   },
@@ -43,6 +43,15 @@ var catSchema = new Schema({
   secondaryBreed: {
     type: String,
     enum: ["DSH", "DMH", "DLH", "Other"]
+  },
+  primaryColor: {
+    type: String
+  },
+  secondaryColor: {
+    type: String
+  },
+  colorPattern: {
+    type: String
   },
   description: {
     type: String
@@ -108,6 +117,9 @@ var catSchema = new Schema({
   ownerTableID: {
     type: Schema.Types.ObjectId,
     ref: "owner"
+  },
+  recordOwner: {
+    type: String
   }
 });
 

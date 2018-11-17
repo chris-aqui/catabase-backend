@@ -69,7 +69,12 @@ module.exports = {
       dob: req.body.dob,
       size: req.body.size,
       primaryBreed: req.body.primaryBreed,
-      secondaryBreed: req.body.secondaryBreed
+      secondaryBreed: req.body.secondaryBreed,
+      sterilized: req.nody.sterilized,
+      dob: req.body.dob,
+      primaryColor: req.body.primaryColor,
+      secondaryColor: req.body.secondaryColor,
+      colorPattern: req.body.colorPattern
     });
 
     cat.save(function(err, cat) {
