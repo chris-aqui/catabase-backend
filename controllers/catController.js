@@ -15,8 +15,9 @@ module.exports = {
         return res.status(500).json({
           message: "Error when getting cat.",
           error: err
-        });
+        }).populate('shelter').populate('vet').populate('foster').populate('owner')
       }
+      console.log(cats)
       return res.json(cats);
     });
   },
@@ -47,29 +48,59 @@ module.exports = {
    */
   create: function(req, res) {
     var cat = new catModel({
-      name: req.body.name,
-      age: req.body.age,
-      sex: req.body.sex,
-      description: req.body.description,
-      serialNumber: req.body.serialNumber,
+      name: 'Izzy',
+      age: 5,
+      sex: 'Female',
+      status: 'Fostered',
+      description: 'eats birs',
+      serialNumber: 12345,
       shelterTableID: req.body.shelterTableID,
-      shelterID: req.body.shelterID,
-      petpointID: req.body.petpointID,
+      shelterID: 12345,
+      petpointID: 1368,
       image: req.body.image,
-      FIVTested: req.body.FIVTested,
-      FLVTested: req.body.FLVTested,
-      FVRCPVaccinationDate: req.body.FVRCPVaccinationDate,
-      rabiesVaccinationDate: req.body.rabiesVaccinationDate,
+      FIVTested: "Negative",
+      FLVTested: "Negative",
+      FVRCPVaccinationDate: 2018/10/08,
+      rabiesVaccinationDate: 2018/10/08,
       vetTableID: req.body.vetTableID,
-      medicalNotes: req.body.medicalNotes,
-      behaviourNotes: req.body.behaviourNotes,
-      outcome: req.body.outcome,
-      intakeDate: req.body.intakeDate,
+      medicalNotes: 'healthy',
+      behaviourNotes: 'oversleeper',
+      outcome: '??',
+      intakeDate: 2018/10/01,
       fosterPlacementDate: req.body.fosterPlacementDate,
+      fosterTableID: req.body.fosterTableID,
+      ownerTableID: req.body.ownerTableID,
       dob: req.body.dob,
       size: req.body.size,
-      primaryBreed: req.body.primaryBreed,
-      secondaryBreed: req.body.secondaryBreed
+      primaryBreed: 'DSH',
+      secondaryBreed: 'Siamese'
+      
+      // name: req.body.name,
+      // age: req.body.age,
+      // sex: req.body.sex,
+      // status: req.body.status,
+      // description: req.body.description,
+      // serialNumber: req.body.serialNumber,
+      // shelterTableID: req.body.shelterTableID,
+      // shelterID: req.body.shelterID,
+      // petpointID: req.body.petpointID,
+      // image: req.body.image,
+      // FIVTested: req.body.FIVTested,
+      // FLVTested: req.body.FLVTested,
+      // FVRCPVaccinationDate: req.body.FVRCPVaccinationDate,
+      // rabiesVaccinationDate: req.body.rabiesVaccinationDate,
+      // vetTableID: req.body.vetTableID,
+      // medicalNotes: req.body.medicalNotes,
+      // behaviourNotes: req.body.behaviourNotes,
+      // outcome: req.body.outcome,
+      // intakeDate: req.body.intakeDate,
+      // fosterPlacementDate: req.body.fosterPlacementDate,
+      // fosterTableID: req.body.fosterTableID,
+      // ownerTableID: req.body.ownerTableID
+      // dob: req.body.dob,
+      // size: req.body.size,
+      // primaryBreed: req.body.primaryBreed,
+      // secondaryBreed: req.body.secondaryBreed
     });
 
     cat.save(function(err, cat) {
