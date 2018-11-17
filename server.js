@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 // require routes
 const cats = require("./routes/api/catRoutes");
-const cats = require("./routes/api/userRoutes");
+const users = require("./routes/api/userRoutes");
 
 // initilized
 const app = express();
