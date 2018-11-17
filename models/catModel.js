@@ -19,7 +19,7 @@ var catSchema = new Schema({
     type: String,
     require: true
   },
-  Description: {
+  description: {
     type: String
   },
   serialNumber: {
