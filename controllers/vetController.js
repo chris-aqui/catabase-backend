@@ -48,24 +48,22 @@ module.exports = {
      * vetController.create()
      */
     create: function (req, res) {
-        for(vet of vetSeed) {
-            var vet = new vetModel({
-                name: vet.name,
-                phoneNumber: vet.phoneNumber,
-                address: vet.address
-            });
-    
-            vet.save(function (err, vet) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Error when creating vet',
-                        error: err
-                    });
-                }
-                console.log(vet)
-                return res.status(201).json(vet);
-            });
-        }
+        var vet = new vetModel({
+            name: name.req.body,
+            phoneNumber: phoneNumber.req.body,
+            address: address.req.body
+        });
+
+        vet.save(function (err, vet) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when creating vet',
+                    error: err
+                });
+            }
+            console.log(vet)
+            return res.status(201).json(vet);
+        });
     },
 
     /**
