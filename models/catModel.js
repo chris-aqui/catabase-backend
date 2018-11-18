@@ -110,10 +110,36 @@ var catSchema = new Schema({
   fosterPlacementDate: {
     type: Date
   },
-  IntakeSubtype: {
+  recordOwner: {
     type: String
   },
-  recordOwner: {
+  intakeSubtype: {
+    type: String,
+    enum: [
+      "Born in Care",
+      "DOA",
+      "Coalition Partner",
+      "Emergency Response",
+      "Help for Cats",
+      "KWCC",
+      "Non-Coalition Partner"
+    ]
+  },
+  jurisdiction: {
+    type: String,
+    enum: ["KW", "Toronto", "Other"]
+  },
+  transferReason: {
+    type: String
+  },
+  reviewDate: {
+    type: Date
+  },
+  location: {
+    type: String,
+    enum: ["Forster"]
+  },
+  sublocation: {
     type: String
   },
   fosterTableID: {

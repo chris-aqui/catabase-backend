@@ -71,11 +71,17 @@ module.exports = {
       primaryBreed: req.body.primaryBreed,
       secondaryBreed: req.body.secondaryBreed,
       sterilized: req.nody.sterilized,
-      dob: req.body.dob,
       primaryColor: req.body.primaryColor,
       secondaryColor: req.body.secondaryColor,
       colorPattern: req.body.colorPattern,
-      recordOwner: req.body.recordOwner
+      recordOwner: req.body.recordOwner,
+      intakeSubtype: req.body.IntakeSubtype,
+      jurisdiction: req.body.jurisdiction,
+      transferReason: req.body.transferReason,
+      status: req.body.status,
+      location: req.body.location,
+      fosterTableID: req.body.fosterTableID,
+      ownerTableID: req.body.ownerTableID
     });
 
     cat.save(function(err, cat) {
@@ -124,32 +130,65 @@ module.exports = {
       cat.petpointID = req.body.petpointID
         ? req.body.petpointID
         : cat.petpointID;
-      cat.Image = req.body.Image ? req.body.Image : cat.Image;
+      cat.image = req.body.image ? req.body.image : cat.image;
       //
       cat.FIVTested = req.body.FIVTested ? req.body.FIVTested : cat.FIVTested;
       cat.FLVTested = req.body.FLVTested ? req.body.FLVTested : cat.FLVTested;
       cat.FVRCPVaccinationDate = req.body.FVRCPVaccinationDate
         ? req.body.FVRCPVaccinationDate
         : cat.FVRCPVaccinationDate;
-      cat.RabiesVaccinationDate = req.body.RabiesVaccinationDate
-        ? req.body.RabiesVaccinationDate
-        : cat.RabiesVaccinationDate;
+      cat.rabiesVaccinationDate = req.body.rabiesVaccinationDate
+        ? req.body.rabiesVaccinationDate
+        : cat.rabiesVaccinationDate;
       cat.vetTableID = req.body.vetTableID
         ? req.body.vetTableID
         : cat.vetTableID;
-      cat.MedicalNotes = req.body.MedicalNotes
-        ? req.body.MedicalNotes
-        : cat.MedicalNotes;
-      cat.BehaviourNotes = req.body.BehaviourNotes
-        ? req.body.BehaviourNotes
-        : cat.BehaviourNotes;
-      cat.Outcome = req.body.Outcome ? req.body.Outcome : cat.Outcome;
-      cat.IntakeDate = req.body.IntakeDate
-        ? req.body.IntakeDate
-        : cat.IntakeDate;
-      cat.FosterPlacementDate = req.body.FosterPlacementDate
-        ? req.body.FosterPlacementDate
-        : cat.FosterPlacementDate;
+      cat.medicalNotes = req.body.medicalNotes
+        ? req.body.medicalNotes
+        : cat.medicalNotes;
+      cat.behaviourNotes = req.body.behaviourNotes
+        ? req.body.behaviourNotes
+        : cat.behaviourNotes;
+      cat.outcome = req.body.outcome ? req.body.outcome : cat.outcome;
+      cat.intakeDate = req.body.intakeDate
+        ? req.body.intakeDate
+        : cat.intakeDate;
+      cat.fosterPlacementDate = req.body.fosterPlacementDate
+        ? req.body.fosterPlacementDate
+        : cat.fosterPlacementDate;
+      cat.dob = req.body.dob ? req.body.dob : cat.dob;
+      cat.size = req.body.size ? req.body.size : cat.size;
+      cat.primaryBreed = req.body.primaryBreed
+        ? req.body.primaryBreed
+        : cat.primaryBreed;
+      cat.secondaryBreed = req.body.secondaryBreed
+        ? req.body.secondaryBreed
+        : cat.secondaryBreed;
+      cat.sterilized = req.body.sterilized
+        ? req.body.sterilized
+        : cat.sterilized;
+      cat.primaryColor = req.body.primaryColor
+        ? req.body.primaryColor
+        : cat.primaryColor;
+      cat.secondaryColor = req.body.secondaryColor
+        ? req.body.secondaryColor
+        : cat.secondaryColor;
+      cat.colorPattern = req.body.colorPattern
+        ? req.body.colorPattern
+        : cat.colorPattern;
+      cat.recordOwner = req.body.recordOwner
+        ? req.body.recordOwner
+        : cat.recordOwner;
+      cat.intakeSubtype = req.body.intakeSubtype
+        ? req.body.intakeSubtype
+        : cat.intakeSubtype;
+      cat.jurisdiction = req.body.jurisdiction
+        ? req.body.jurisdiction
+        : cat.jurisdiction;
+      cat.transferReason = req.body.transferReason
+        ? req.body.transferReason
+        : cat.transferReason;
+      cat.location = req.body.location ? req.body.location : cat.location;
 
       cat.save(function(err, cat) {
         if (err) {
