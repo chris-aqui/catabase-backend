@@ -1,5 +1,4 @@
 var vetModel = require('../models/vetModel.js');
-const vetSeed = require('../database/vetSeed');
 
 /**
  * vetController.js

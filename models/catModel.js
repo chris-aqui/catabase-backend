@@ -61,7 +61,8 @@ var catSchema = new Schema({
   },
   shelterTableID: {
     type: Schema.Types.ObjectId,
-    ref: "shelter"
+    ref: "shelter",
+    default: null
   },
   shelterID: {
     type: Number
@@ -93,7 +94,8 @@ var catSchema = new Schema({
   },
   vetTableID: {
     type: Schema.Types.ObjectId,
-    ref: "vet"
+    ref: "vet",
+    default: null
   },
   medicalNotes: {
     type: String
@@ -137,18 +139,20 @@ var catSchema = new Schema({
   },
   location: {
     type: String,
-    enum: ["Forster"]
+    enum: ["Foster", 'Adopted']
   },
   sublocation: {
     type: String
   },
   fosterTableID: {
     type: Schema.Types.ObjectId,
-    ref: "foster"
+    ref: "foster",
+    default: null
   },
   ownerTableID: {
     type: Schema.Types.ObjectId,
-    ref: "owner"
+    ref: "owner",
+    default: null
   }
 });
 
