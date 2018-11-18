@@ -3,6 +3,8 @@ const express = require("express");
 var session = require('express-session');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+var cors = require('cors')
+
 
 // require routes
 const cats = require("./routes/api/catRoutes");
@@ -11,6 +13,7 @@ const users = require("./routes/api/userRoutes");
 // initilized
 const app = express();
 const port = process.env.PORT || 5000;
+app.use(cors())
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
