@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var shelterController = require('../../controllers/shelterController.js');
+var shelterController = require("../../controllers/shelterController.js");
 
 /*
  * GET
  */
-router.get('/', shelterController.list);
+router.get("/", shelterController.list);
 
 /*
  * GET
  */
-router.get('/:id', shelterController.show);
+router.get("/:id", shelterController.show);
 
 /*
  * POST
  */
-router.post('/', shelterController.create);
+router.post("/", shelterController.create);
 
 /*
  * PUT
  */
-router.put('/:id', shelterController.update);
+router.put("/:id", shelterController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', shelterController.remove);
+router.delete("/:id", shelterController.remove);
 
 module.exports = router;

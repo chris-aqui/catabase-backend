@@ -44,6 +44,15 @@ var catSchema = new Schema({
     type: String,
     enum: ["DSH", "DMH", "DLH", "Other"]
   },
+  primaryColor: {
+    type: String
+  },
+  secondaryColor: {
+    type: String
+  },
+  colorPattern: {
+    type: String
+  },
   description: {
     type: String
   },
@@ -100,6 +109,38 @@ var catSchema = new Schema({
   },
   fosterPlacementDate: {
     type: Date
+  },
+  recordOwner: {
+    type: String
+  },
+  intakeSubtype: {
+    type: String,
+    enum: [
+      "Born in Care",
+      "DOA",
+      "Coalition Partner",
+      "Emergency Response",
+      "Help for Cats",
+      "KWCC",
+      "Non-Coalition Partner"
+    ]
+  },
+  jurisdiction: {
+    type: String,
+    enum: ["KW", "Toronto", "Other"]
+  },
+  transferReason: {
+    type: String
+  },
+  reviewDate: {
+    type: Date
+  },
+  location: {
+    type: String,
+    enum: ["Forster"]
+  },
+  sublocation: {
+    type: String
   },
   fosterTableID: {
     type: Schema.Types.ObjectId,

@@ -132,7 +132,9 @@ module.exports = {
                     return next(err);
                 } else {
                     req.session.userId = user._id;
-                    return res.redirect('/');
+                    return res.status(200).json({
+                        message: "All good"
+                    });
                 }
             })
         } else {
