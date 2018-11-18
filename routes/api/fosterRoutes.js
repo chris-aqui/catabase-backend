@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var fosterController = require('../controllers/fosterController.js');
+var fosterController = require('../../controllers/fosterController');
 
 /*
  * GET

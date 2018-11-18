@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var shelterController = require('../controllers/shelterController.js');
+var shelterController = require('../../controllers/shelterController.js');
 
 /*
  * GET

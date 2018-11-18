@@ -15,7 +15,7 @@ var catSchema = new Schema({
     type: Date
   },
   age: {
-    type: Number,
+    type: String,
     enum: ["Unweaned", "Juvenile", "Young Adult", "Adult", "Senior"],
     required: true
   },

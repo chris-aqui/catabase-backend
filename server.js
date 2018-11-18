@@ -10,7 +10,7 @@ const users = require("./routes/api/userRoutes");
 const owners = require('./routes/api/ownerRoutes');
 const shelters = require('./routes/api/shelterRoutes');
 const fosters = require('./routes/api/fosterRoutes');
-const vets = require('./routes/api/vetRouteRoutes');
+const vets = require('./routes/api/vetRoutes');
 
 
 // initilized

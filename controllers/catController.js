@@ -10,16 +10,15 @@ module.exports = {
    * catController.list()
    */
   list: function(req, res) {
-    catModel.find(function(err, cats) {
-      if (err) {
-        return res.status(500).json({
-          message: "Error when getting cat.",
-          error: err
-        }).populate('shelter').populate('vet').populate('foster').populate('owner')
-      }
-      console.log(cats)
-      return res.json(cats);
-    });
+    catModel.find({}).populate('shelterTableID')
+        .populate('vetTableID').populate('fosterTableID').populate('ownerTableID')
+      .then(dbcats => {
+        res.json(dbcats)
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(422).json(err);
+      });      
   },
 
   /**
@@ -48,13 +47,13 @@ module.exports = {
    */
   create: function(req, res) {
     var cat = new catModel({
-      name: 'Izzy',
-      age: 5,
+      name: 'Penelope',
+      age: 'Young Adult',
       sex: 'Female',
       status: 'Fostered',
-      description: 'eats birs',
+      description: 'black',
       serialNumber: 12345,
-      shelterTableID: req.body.shelterTableID,
+      shelterTableID: '5bf09c3f75bebeb7e0e7087b',
       shelterID: 12345,
       petpointID: 1368,
       image: req.body.image,
@@ -62,18 +61,18 @@ module.exports = {
       FLVTested: "Negative",
       FVRCPVaccinationDate: 2018/10/08,
       rabiesVaccinationDate: 2018/10/08,
-      vetTableID: req.body.vetTableID,
+      vetTableID: '5bf0721c18f2bf2490ddb46d',
       medicalNotes: 'healthy',
-      behaviourNotes: 'oversleeper',
+      behaviourNotes: 'eats birds',
       outcome: '??',
       intakeDate: 2018/10/01,
-      fosterPlacementDate: req.body.fosterPlacementDate,
-      fosterTableID: req.body.fosterTableID,
-      ownerTableID: req.body.ownerTableID,
-      dob: req.body.dob,
+      fosterPlacementDate: 2018/10/01,
+      fosterTableID: '5bf09ddce8717b95f02ad410',
+      ownerTableID: '5bf09d06996464ae50f0e416',
+      dob: 2018/01/02,
       size: req.body.size,
       primaryBreed: 'DSH',
-      secondaryBreed: 'Siamese'
+      secondaryBreed: 'DSH'
       
       // name: req.body.name,
       // age: req.body.age,

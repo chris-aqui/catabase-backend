@@ -47,29 +47,30 @@ module.exports = {
      * ownerController.create()
      */
     create: function (req, res) {
-        var owner = new ownerModel({
-                name: 'Elizabeth Porter',
-                address: '123 Cat Lane',
-                phoneNumber: '647-999-0000',
-                email: 'ep@capitalone.com'
-            },
+        var owner = new ownerModel(
             {
-                name: 'Christine Aqui',
-                address: '123 Catastophre Avenue',
-                phoneNumber: '647-999-0000',
-                email: 'ca@capitalone.com'
-            },
-            {
-                name: 'Lisa Freedman',
-                address: '123 BackAlley',
-                phoneNumber: '647-999-0000',
-                email: 'lf@capitalone.com'
-
-            // name: req.body.name,
-            // address: req.body.address,
-            // phoneNumber: req.body.phoneNumber,
-            // email: req.body.email
-        });
+                name: req.body.name,
+                address: req.body.address,
+                phoneNumber: req.body.phoneNumber,
+                email: req.body.email
+                // 
+                //     name: 'Elizabeth Porter',
+                //     address: '123 Cat Lane',
+                //     phoneNumber: '647-999-0000',
+                //     email: 'ep@capitalone.com'
+                // },
+                // {
+                //     name: 'Christine Aqui',
+                //     address: '123 Catastophre Avenue',
+                //     phoneNumber: '647-999-0000',
+                //     email: 'ca@capitalone.com'
+                // },
+                // {
+                //     name: 'Lisa Freedman',
+                //     address: '123 BackAlley',
+                //     phoneNumber: '647-999-0000',
+                //     email: 'lf@capitalone.com'
+            });
 
         owner.save(function (err, owner) {
             if (err) {

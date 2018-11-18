@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ownerController = require('../controllers/ownerController.js');
+var ownerController = require('../../controllers/ownerController');
 
 /*
  * GET
